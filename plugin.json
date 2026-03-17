@@ -1,0 +1,11 @@
+{
+  "name": "Freshdesk Import",
+  "slug": "escalated-plugin-import-freshdesk",
+  "version": "0.1.0",
+  "description": "Import tickets, contacts, and history from Freshdesk into Escalated.",
+  "author": "Escalated",
+  "main_file": "Plugin.php",
+  "requires": {
+    "escalated-laravel": ">=0.6.0"
+  }
+}
