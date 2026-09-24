@@ -1,5 +1,7 @@
 # Escalated Plugin: Import Freshdesk
 
+[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-freshdesk.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-freshdesk/)
+
 **Website:** [escalated.dev](https://escalated.dev)
 
 Imports tickets, contacts, agents, departments (groups), tags, custom fields, and full conversation history from Freshdesk into Escalated. Uses adaptive date-windowing to work around Freshdesk's 300-page (30,000 record) hard limit per query.
