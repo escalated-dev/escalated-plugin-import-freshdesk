@@ -43,4 +43,4 @@ npm install @escalated-dev/plugin-import-freshdesk
 
 ## License
 
-MIT
+MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
