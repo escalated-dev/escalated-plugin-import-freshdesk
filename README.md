@@ -1,46 +1,68 @@
-# Escalated Plugin: Import Freshdesk
+<p align="center">
+  <a href="https://escalated.dev"><img src="https://raw.githubusercontent.com/escalated-dev/escalated/main/docs/assets/readme/logo.png" width="56" height="56" alt="Escalated"></a>
+</p>
 
-[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-freshdesk.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-freshdesk/)
+<h1 align="center">Freshdesk import for Escalated</h1>
 
-**Website:** [escalated.dev](https://escalated.dev)
+<p align="center">Move your Freshdesk helpdesk into Escalated, history included.</p>
 
-Imports tickets, contacts, agents, departments (groups), tags, custom fields, and full conversation history from Freshdesk into Escalated. Uses adaptive date-windowing to work around Freshdesk's 300-page (30,000 record) hard limit per query.
+<p align="center">
+  <a href="https://escalated.dev"><b>Website</b></a> ·
+  <a href="https://escalated.dev/docs"><b>Docs</b></a> ·
+  <a href="https://escalated.dev/cloud"><b>Cloud</b></a> ·
+  <a href="https://github.com/escalated-dev/escalated-plugin-import-freshdesk/releases"><b>Releases</b></a>
+</p>
+
+This plugin imports tickets, contacts, agents, groups, tags, custom fields and full conversation history from Freshdesk into Escalated for Laravel. It's for teams switching from Freshdesk, including large accounts that hit Freshdesk's 30,000-record query limit.
 
 ## Features
 
-- Imports agents, contacts, departments (groups), tags, and custom ticket fields
-- Imports tickets with status and priority mapping
-- Imports all conversations (replies and private notes) with attachment metadata
-- Adaptive date-windowing for ticket extraction bypasses Freshdesk's 30,000-record page limit
-- Windows split in half automatically when the 300-page limit is approached
-- Cursor-based pagination allows resumable imports
-- Automatic rate-limit handling with `Retry-After` header support and retry on 429/5xx
-- Maps Freshdesk statuses (Open, Waiting, Resolved, Closed) to Escalated equivalents
-- Maps Freshdesk priorities (Low, Medium, High, Urgent) to Escalated equivalents
-- Tags collected from ticket records (no separate Freshdesk tags endpoint needed)
+<table>
+<tr>
+<td width="33%" valign="top">
 
-## Configuration
+**What it imports**
+- Agents, contacts, groups, tags, custom fields
+- Tickets with status and priority mapping
+- Replies and private notes with attachment metadata
+- Tags collected from ticket records
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `domain` | text | Yes | Your Freshdesk subdomain, e.g. `acme` for `acme.freshdesk.com`. |
-| `api_key` | password | Yes | API key from Freshdesk Profile Settings. |
+</td>
+<td width="33%" valign="top">
 
-## Hooks
+**Large accounts**
+- Date windows get past the 30,000-record limit
+- Windows split in half near 300 pages
+- Resumable imports with cursor pagination
 
-### Filters
-- `import.adapters` — Registers the Freshdesk import adapter with the Escalated import system.
+</td>
+<td width="33%" valign="top">
 
-## Entity Import Order
+**Mapping and limits**
+- Retries on 429 and 5xx, honours Retry-After
+- Statuses mapped: Open, Waiting, Resolved, Closed
+- Priorities mapped: Low, Medium, High, Urgent
 
-`agents` > `tags` > `custom_fields` > `departments` > `contacts` > `tickets` > `replies` > `attachments`
+</td>
+</tr>
+</table>
 
-## Installation
+<p align="center"><sub><a href="docs/features.md">Every feature in detail</a></sub></p>
 
-```bash
-npm install @escalated-dev/plugin-import-freshdesk
-```
+<p align="center">
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"></a>
+  <a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"></a>
+  <a href="https://getcomposer.org"><img src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer"></a>
+</p>
+
+## Learn more
+
+- [Every feature](docs/features.md)
+- [Configuration, hooks and import order](docs/reference.md)
+- [Plugin SDK](https://github.com/escalated-dev/escalated-plugin-sdk): how Escalated plugins are built
+- [Escalated docs](https://escalated.dev/docs)
+- [Escalated](https://github.com/escalated-dev/escalated), the main repo
 
 ## License
 
-MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
+MIT. Copyright (c) 2026 Escalated.dev. See [LICENSE](LICENSE).
